@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +13,49 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="basic_ar_app" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EDl-ja-hpR">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </arscnView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y1l-O6-LsF">
+                                <rect key="frame" x="136" y="481" width="48" height="48"/>
+                                <state key="normal" image="add"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p1d-NG-G18">
+                                <rect key="frame" x="256" y="47" width="48" height="48"/>
+                                <state key="normal" image="restart"/>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="p1d-NG-G18" secondAttribute="bottom" constant="473" id="1fn-c6-377"/>
+                            <constraint firstAttribute="bottom" secondItem="EDl-ja-hpR" secondAttribute="bottom" id="9Ky-6N-dj9"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="p1d-NG-G18" secondAttribute="trailing" constant="16" id="EwA-vY-d4x"/>
+                            <constraint firstItem="p1d-NG-G18" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="256" id="H5z-4h-vcS"/>
+                            <constraint firstItem="EDl-ja-hpR" firstAttribute="centerX" secondItem="Y1l-O6-LsF" secondAttribute="centerX" id="KC8-XO-ylK"/>
+                            <constraint firstAttribute="trailing" secondItem="EDl-ja-hpR" secondAttribute="trailing" id="RYx-Hd-k5e"/>
+                            <constraint firstItem="EDl-ja-hpR" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="VSc-zA-FXR"/>
+                            <constraint firstItem="Y1l-O6-LsF" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="461" id="ly7-Jw-bL8"/>
+                            <constraint firstItem="EDl-ja-hpR" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="oga-Qz-S9I"/>
+                            <constraint firstItem="p1d-NG-G18" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="27" id="vcZ-gX-cgP"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="sceneView" destination="EDl-ja-hpR" id="gXK-fD-7ZN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="129.91071428571428"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="add" width="48" height="48"/>
+        <image name="restart" width="20" height="23"/>
+    </resources>
 </document>
