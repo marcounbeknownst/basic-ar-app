@@ -13,7 +13,15 @@ import SceneKit
 class ViewController: UIViewController {
 
     @IBOutlet var sceneView: ARSCNView!
+    var currentNodeName: String = "model.dae"
     
+    @IBAction func restart(_ sender: UIButton) {
+        print("restarted view")
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        print("touches began")
+    }
 }
 
 extension ViewController: ARSCNViewDelegate {
