@@ -45,5 +45,31 @@ extension ViewController: ARSCNViewDelegate {
         sceneView.session.pause()
     }
     
+    func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
+        guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
+        print("add node \(planeAnchor)")
+    }
+    
 }
+
+extension ViewController: UIPopoverPresentationControllerDelegate {
+    
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .none
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if let popoverController = segue.destination.popoverPresentationController, let button = sender as? UIButton {
+            popoverController.delegate = self
+            popoverController.sourceRect = button.bounds
+        }
+        
+        if let objectsViewController = segue.destination as? UIViewController {
+            objectsViewController.popoverPresentationController?.delegate = self
+        }
+    }
+    
+}
+
 
