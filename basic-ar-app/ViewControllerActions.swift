@@ -14,11 +14,11 @@ extension ViewController {
     func createPlane(anchor: ARPlaneAnchor) -> SCNNode {
         let position = SCNVector3Make(anchor.transform.columns.3.x, anchor.transform.columns.3.y, anchor.transform.columns.3.z)
         let plane = SCNPlane(width: CGFloat(anchor.center.x), height: CGFloat(anchor.center.z))
-        //        let grassImage = UIImage(named: "grass")
-        let grassMaterial = SCNMaterial()
-        //        grassMaterial.diffuse.contents = grassImage
-        grassMaterial.isDoubleSided = true
-        plane.materials = [grassMaterial]
+        //        let image = UIImage(named: "material")
+        let material = SCNMaterial()
+        //        material.diffuse.contents = image
+        material.isDoubleSided = true
+        plane.materials = [material]
         let planeNode = SCNNode(geometry: plane)
         planeNode.position = position
         planeNode.transform = SCNMatrix4MakeRotation(-Float.pi / 2, 1, 0, 0)
@@ -27,12 +27,12 @@ extension ViewController {
     }
     
     func createNode() {
-        var wolfNode: SCNNode!
-        if let wolfScene = SCNScene(named: currentNodeName) {
-            wolfNode = wolfScene.rootNode.childNode(withName: "wolf", recursively: true)
-            wolfNode.position = sceneView.scene.rootNode.childNodes.last!.position
+        var currentNode: SCNNode!
+        if let currentScene = SCNScene(named: currentNodeName) {
+            currentNode = currentScene.rootNode.childNode(withName: "node", recursively: true)
+            currentNode.position = sceneView.scene.rootNode.childNodes.last!.position
             sceneView.scene.rootNode.childNodes.last?.removeFromParentNode()
-            sceneView.scene.rootNode.addChildNode(wolfNode!)
+            sceneView.scene.rootNode.addChildNode(currentNode!)
         }
     }
     
