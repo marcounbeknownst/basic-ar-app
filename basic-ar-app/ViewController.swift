@@ -16,11 +16,11 @@ class ViewController: UIViewController {
     var currentNodeName: String = "model.dae"
     
     @IBAction func restart(_ sender: UIButton) {
-        print("restarted view")
+        restartView()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        print("touches began")
+        createNode()
     }
 }
 
@@ -47,7 +47,8 @@ extension ViewController: ARSCNViewDelegate {
     
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
         guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
-        print("add node \(planeAnchor)")
+        let planeNode = createPlane(anchor: planeAnchor)
+        node.addChildNode(planeNode)
     }
     
 }
@@ -65,8 +66,10 @@ extension ViewController: UIPopoverPresentationControllerDelegate {
             popoverController.sourceRect = button.bounds
         }
         
-        if let objectsViewController = segue.destination as? UIViewController {
-            objectsViewController.popoverPresentationController?.delegate = self
+        if let objectsViewController = segue.destination as? PopOverController {
+            objectsViewController.didTap = { [weak self] model in
+                self?.currentNodeName = model
+            }
         }
     }
     
