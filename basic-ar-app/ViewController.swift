@@ -13,7 +13,8 @@ import SceneKit
 class ViewController: UIViewController {
 
     @IBOutlet var sceneView: ARSCNView!
-    var currentNodeName: String = "model.dae"
+    var currentNode: Node?
+    var lastPosition: SCNVector3?
     
     @IBAction func restart(_ sender: UIButton) {
         restartView()
@@ -67,8 +68,8 @@ extension ViewController: UIPopoverPresentationControllerDelegate {
         }
         
         if let objectsViewController = segue.destination as? PopOverController {
-            objectsViewController.didTap = { [weak self] model in
-                self?.currentNodeName = model
+            objectsViewController.didTap = { [weak self] node in
+                self?.currentNode = node
             }
         }
     }
