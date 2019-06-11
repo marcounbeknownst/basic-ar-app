@@ -10,7 +10,7 @@ import UIKit
 
 class PopOverController: UITableViewController {
     
-    var didTap: ((String) -> Void)?
+    var didTap: ((Node) -> Void)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +32,7 @@ extension PopOverController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        didTap?(Constants.modelList[indexPath.row].location)
+        didTap?(Constants.modelList[indexPath.row])
         self.dismiss(animated: true, completion: nil)
     }
 }
