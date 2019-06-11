@@ -31,7 +31,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p1d-NG-G18">
-                                <rect key="frame" x="256" y="47" width="48" height="48"/>
+                                <rect key="frame" x="256" y="38" width="48" height="48"/>
                                 <state key="normal" image="restart"/>
                                 <connections>
                                     <action selector="restart:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XXn-Nn-di4"/>
@@ -40,7 +40,7 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="p1d-NG-G18" secondAttribute="bottom" constant="473" id="1fn-c6-377"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="p1d-NG-G18" secondAttribute="bottom" constant="482" id="1fn-c6-377"/>
                             <constraint firstAttribute="bottom" secondItem="EDl-ja-hpR" secondAttribute="bottom" id="9Ky-6N-dj9"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="p1d-NG-G18" secondAttribute="trailing" constant="16" id="EwA-vY-d4x"/>
                             <constraint firstItem="p1d-NG-G18" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="256" id="H5z-4h-vcS"/>
@@ -49,7 +49,7 @@
                             <constraint firstItem="EDl-ja-hpR" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="VSc-zA-FXR"/>
                             <constraint firstItem="Y1l-O6-LsF" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="461" id="ly7-Jw-bL8"/>
                             <constraint firstItem="EDl-ja-hpR" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="oga-Qz-S9I"/>
-                            <constraint firstItem="p1d-NG-G18" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="27" id="vcZ-gX-cgP"/>
+                            <constraint firstItem="p1d-NG-G18" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="18" id="vcZ-gX-cgP"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
