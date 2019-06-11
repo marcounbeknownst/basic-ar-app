@@ -9,10 +9,14 @@
 import Foundation
 
 enum Constants {
-    static let modelList = [Node](arrayLiteral:
-        Node(location: "1.dae", name: "1", icon: "1.png"),
-        Node(location: "2.dae", name: "2", icon: "2.png"),
-        Node(location: "3.dae", name: "3", icon: "3.png"),
-        Node(location: "4.dae", name: "4", icon: "4.png")
+    static let modelList = [Node](
+        arrayLiteral:
+        Node(location: "Models.scnassets/cube/cube.dae", name: "cube", icon: "cube"),
+        Node(location: "Models.scnassets/fox/fox.dae", name: "fox", icon: "fox"),
+        Node(location: "Models.scnassets/hatsune/hatsune.dae", name: "hatsune", icon: "hatsune"),
+        Node(location: "Models.scnassets/orb/orb.dae", name: "orb", icon: "orb"),
+        Node(location: "Models.scnassets/starwars/starwars.dae", name: "starwars", icon: "starwars"),
+        Node(location: "Models.scnassets/tone/tone.dae", name: "tone", icon: "tone"),
+        Node(location: "Models.scnassets/wolf/wolf.dae", name: "wolf", icon: "wolf")
     )
 }
