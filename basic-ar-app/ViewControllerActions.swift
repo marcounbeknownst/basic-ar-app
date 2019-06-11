@@ -13,10 +13,11 @@ extension ViewController {
     
     func createPlane(anchor: ARPlaneAnchor) -> SCNNode {
         let position = SCNVector3Make(anchor.transform.columns.3.x, anchor.transform.columns.3.y, anchor.transform.columns.3.z)
-        let plane = SCNPlane(width: CGFloat(anchor.center.x), height: CGFloat(anchor.center.z))
-        //        let image = UIImage(named: "material")
+        self.lastPosition = position
+        let plane = SCNPlane(width: CGFloat(anchor.center.x + 0.1), height: CGFloat(anchor.center.z + 0.1))
+        let image = UIImage(named: "material")
         let material = SCNMaterial()
-        //        material.diffuse.contents = image
+        material.diffuse.contents = image
         material.isDoubleSided = true
         plane.materials = [material]
         let planeNode = SCNNode(geometry: plane)
@@ -27,12 +28,19 @@ extension ViewController {
     }
     
     func createNode() {
-        var currentNode: SCNNode!
-        if let currentScene = SCNScene(named: currentNodeName) {
-            currentNode = currentScene.rootNode.childNode(withName: "node", recursively: true)
-            currentNode.position = sceneView.scene.rootNode.childNodes.last!.position
+        var newNode: SCNNode!
+        
+        guard lastPosition != nil else {
+            print("error = last position not found")
+            showToast(message: "Plane not found")
+            return
+        }
+        
+        if let newScene = SCNScene(named: currentNode?.location ?? "Models.scnassets/cube/cube.dae") {
+            newNode = newScene.rootNode.childNode(withName: currentNode?.name ?? "cube", recursively: true)
+            newNode.position = lastPosition!
             sceneView.scene.rootNode.childNodes.last?.removeFromParentNode()
-            sceneView.scene.rootNode.addChildNode(currentNode!)
+            sceneView.scene.rootNode.addChildNode(newNode!)
         }
     }
     
@@ -40,6 +48,24 @@ extension ViewController {
         sceneView.scene.rootNode.enumerateChildNodes { (existingNode, _) in
             existingNode.removeFromParentNode()
         }
+    }
+    
+    func showToast(message : String) {
+        let toastLabel = UILabel(frame: CGRect(x: self.view.frame.size.width/2 - 75, y: self.view.frame.size.height-150, width: 150, height: 35))
+        toastLabel.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+        toastLabel.textColor = UIColor.white
+        toastLabel.textAlignment = .center;
+        toastLabel.font = UIFont(name: "Montserrat-Light", size: 12.0)
+        toastLabel.text = message
+        toastLabel.alpha = 1.0
+        toastLabel.layer.cornerRadius = 10;
+        toastLabel.clipsToBounds  =  true
+        self.view.addSubview(toastLabel)
+        UIView.animate(withDuration: 4.0, delay: 0.1, options: .curveEaseOut, animations: {
+            toastLabel.alpha = 0.0
+        }, completion: {(isCompleted) in
+            toastLabel.removeFromSuperview()
+        })
     }
     
 }
